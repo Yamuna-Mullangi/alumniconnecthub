@@ -3,25 +3,32 @@ import { GraduationCap } from "lucide-react";
 
 const AuthLayout = () => {
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="flex justify-center">
-                    <div className="h-12 w-12 bg-indigo-600 rounded-xl flex items-center justify-center text-white">
-                        <GraduationCap size={32} />
-                    </div>
-                </div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Alumni Connect
-                </h2>
-                <p className="mt-2 text-center text-sm text-gray-600">
-                    Your professional alumni network
-                </p>
+        <div className="min-h-screen relative flex items-center justify-center p-4">
+            {/* Background Image */}
+            <div className="fixed inset-0 z-0">
+                <img
+                    className="h-full w-full object-cover"
+                    src="/images/carousel1.jpg"
+                    alt="Campus Background"
+                />
+                <div className="absolute inset-0 bg-black/20" />
             </div>
 
-            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-gray-100">
-                    <Outlet />
+            {/* Content Card */}
+            <div className="relative z-10 w-full max-w-md bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-2xl shadow-2xl p-8 animate-in fade-in zoom-in-95 duration-500">
+                <div className="mb-8 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-indigo-600/10 text-indigo-600 mb-4">
+                        <GraduationCap size={40} />
+                    </div>
+                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-serif">
+                        Alumni Connect
+                    </h2>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        Vignan's Lara Institute of Technology & Science
+                    </p>
                 </div>
+
+                <Outlet />
             </div>
         </div>
     );

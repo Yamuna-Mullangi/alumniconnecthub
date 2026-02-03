@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 // Layouts
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
+import PublicLayout from "./layouts/PublicLayout";
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -35,10 +36,13 @@ const App = () => {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/legacy-hall" element={<LegacyHall />} />
-          <Route path="/hall-of-fame" element={<HallOfFame />} />
-          <Route path="/campus-location" element={<CampusLocation />} />
+
+          <Route element={<PublicLayout />}>
+            <Route path="/about" element={<About />} />
+            <Route path="/legacy-hall" element={<LegacyHall />} />
+            <Route path="/hall-of-fame" element={<HallOfFame />} />
+            <Route path="/campus-location" element={<CampusLocation />} />
+          </Route>
 
           {/* Auth Routes */}
           <Route path="/auth" element={<AuthLayout />}>

@@ -41,7 +41,7 @@ const SuccessDomainsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 md:px-12 bg-background">
+    <section className="py-20 px-6 md:px-12 bg-gradient-to-b from-indigo-50/30 to-purple-50/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
@@ -58,18 +58,19 @@ const SuccessDomainsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {domains.map((domain, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 cursor-pointer"
+            <Card
+              key={index}
+              className="overflow-hidden group bg-white/60 backdrop-blur-sm hover:bg-white/90 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border border-white/50 hover:border-primary/50 cursor-pointer hover:-translate-y-2 animate-scale-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${domain.color} flex items-center justify-center mb-6 shadow-lg shadow-black/5 group-hover:scale-110 transition-transform duration-300`}>
                   <domain.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                   {domain.title}
                 </h3>
-                <div className="inline-block px-3 py-1 bg-primary/10 rounded-full mb-4">
+                <div className="inline-block px-3 py-1 bg-primary/5 rounded-full mb-4">
                   <span className="text-sm font-semibold text-primary">{domain.count}</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -81,7 +82,7 @@ const SuccessDomainsSection = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="inline-block p-8 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border-2 border-primary/20">
+          <div className="inline-block p-8 bg-white/40 backdrop-blur-md rounded-2xl border border-white/50 shadow-xl">
             <p className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               4,168+ Alumni
             </p>

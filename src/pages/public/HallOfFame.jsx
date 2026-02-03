@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Award, Star } from "lucide-react";
+import { Award, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const HallOfFame = () => {
@@ -29,14 +29,7 @@ const HallOfFame = () => {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-16 flex items-center px-6">
-                <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors">
-                    <ArrowLeft className="w-5 h-5" />
-                    <span className="font-medium">Back to Home</span>
-                </Link>
-            </header>
-
-            <main className="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+            <div className="pb-20 px-6 max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center justify-center p-3 bg-yellow-100 rounded-full mb-4">
                         <Award className="w-8 h-8 text-yellow-600" />
@@ -69,7 +62,7 @@ const HallOfFame = () => {
                         </Card>
                     ))}
                 </div>
-            </main>
+            </div>
         </div>
     );
 };

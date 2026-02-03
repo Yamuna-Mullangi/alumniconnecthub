@@ -38,7 +38,7 @@ const TopAlumniSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 md:px-12 bg-background">
+    <section className="py-20 px-6 md:px-12 bg-gradient-to-b from-background to-indigo-50/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
@@ -55,9 +55,10 @@ const TopAlumniSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {topAlumni.map((alumni, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden hover:shadow-xl transition-all duration-300 group border-2 hover:border-primary/50"
+            <Card
+              key={index}
+              className="overflow-hidden bg-white/60 backdrop-blur-md hover:shadow-2xl transition-all duration-300 group border-white/20 shadow-lg hover:border-primary/50 cursor-pointer hover:-translate-y-2 animate-fade-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative h-64 overflow-hidden">
                 <img

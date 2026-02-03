@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const CampusLocation = () => {
     return (
         <div className="min-h-screen bg-white">
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-16 flex items-center px-6">
-                <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors">
-                    <ArrowLeft className="w-5 h-5" />
-                    <span className="font-medium">Back to Home</span>
-                </Link>
-            </header>
-
-            <main className="pt-24 pb-20 px-6 max-w-7xl mx-auto h-[calc(100vh-6rem)] flex flex-col md:flex-row gap-8">
+            <div className="pb-20 px-6 max-w-7xl mx-auto h-[calc(100vh-6rem)] flex flex-col md:flex-row gap-8">
                 <div className="w-full md:w-1/3 space-y-6">
                     <div>
                         <h1 className="text-4xl font-bold text-gray-900 mb-4 font-serif">Contact Us</h1>
@@ -67,7 +60,7 @@ const CampusLocation = () => {
 
                 <div className="w-full md:w-2/3 h-96 md:h-full bg-gray-100 rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3831.334464876611!2d80.56067031481523!3d16.22822458878233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a09a5eb43f389%3A0xe547926715f33f01!2sVignan&#39;s%20Lara%20Institute%20of%20Technology%20%26%20Science!5e0!3m2!1sen!2sin!4v1677654321098!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.736573529187!2d80.55174731487576!3d16.231563588700253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a0952629d4601%3A0x864f3a1980b47e3e!2sVignan&#39;s%20LARA%20Institute%20of%20Technology%20%26%20Science!5e0!3m2!1sen!2sin!4v1706367123456!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -77,7 +70,7 @@ const CampusLocation = () => {
                         title="Vignan's Lara Campus Location"
                     ></iframe>
                 </div>
-            </main>
+            </div>
         </div>
     );
 };

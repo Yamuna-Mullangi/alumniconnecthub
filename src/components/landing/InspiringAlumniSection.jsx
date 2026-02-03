@@ -63,7 +63,8 @@ const InspiringAlumniSection = () => {
           {alumni.map((person, index) => (
             <div
               key={index}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center animate-scale-in"
+              style={{ animationDelay: `${index * 100}ms` }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

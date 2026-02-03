@@ -1,6 +1,5 @@
 import HeroSection from "@/components/landing/HeroSection";
 import TopAlumniSection from "@/components/landing/TopAlumniSection";
-import CampusSection from "@/components/landing/CampusSection";
 import InspiringAlumniSection from "@/components/landing/InspiringAlumniSection";
 import SuccessDomainsSection from "@/components/landing/SuccessDomainsSection";
 import BatchSection from "@/components/landing/BatchSection";
@@ -11,7 +10,6 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <HeroSection />
       <TopAlumniSection />
-      <CampusSection />
       <InspiringAlumniSection />
       <SuccessDomainsSection />
       <BatchSection />
