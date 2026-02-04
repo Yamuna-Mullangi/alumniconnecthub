@@ -43,8 +43,8 @@ const HeroSection = () => {
       {/* Navigation Header */}
       <header className="relative z-20 flex items-center justify-between px-6 md:px-12 py-4">
         <div className="flex items-center gap-3">
-          <div className="h-14 md:h-16 w-14 md:w-16 rounded-full bg-primary/20 backdrop-blur-lg flex items-center justify-center border-2 border-primary/30 p-1">
-            <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain" />
+          <div className="h-14 md:h-16 w-14 md:w-16 rounded-full bg-indigo-600/10 backdrop-blur-lg flex items-center justify-center p-2 border-2 border-indigo-600/20">
+            <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain rounded-full bg-white" />
           </div>
           <div className="hidden md:block">
             <h1 className="text-xl font-bold text-purple-50 font-serif">Alumni Connect</h1>
@@ -69,8 +69,8 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-6 text-center">
         {currentSlide === 0 && (
           <div className="animate-scale-in mb-8">
-            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-primary/20 backdrop-blur-lg flex items-center justify-center mx-auto border-4 border-primary/30 animate-float overflow-hidden p-4">
-              <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain" />
+            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-indigo-600/10 backdrop-blur-lg flex items-center justify-center mx-auto border-4 border-indigo-600/20 animate-float overflow-hidden p-6">
+              <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain rounded-full bg-white" />
             </div>
           </div>
         )}
@@ -79,7 +79,7 @@ const HeroSection = () => {
           Alumni Connect Hub
         </h1>
         <p className="text-lg md:text-xl text-purple-100/90 max-w-2xl mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          Network. Engage. Reunite. Connect with fellow alumni from Vignan's Lara Institute of Technology and Science.
+          <em>Network. Engage. Reunite. Connect with fellow alumni from Vignan's Lara Institute of Technology and Science.</em>
         </p>
 
         {/* Action Buttons */}

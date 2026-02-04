@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Briefcase, GraduationCap, Mail, Globe, Linkedin, FileText } from "lucide-react";
+import { MapPin, Briefcase, Mail, Globe, Linkedin, FileText } from "lucide-react";
 
 // Mock user data fetcher
 const getUser = (id) => ({
@@ -59,7 +59,7 @@ const Profile = () => {
                             <p className="text-gray-600">{user.role} at {user.company}</p>
                             <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
                                 <span className="flex items-center gap-1"><MapPin className="h-4 w-4" /> {user.location}</span>
-                                <span className="flex items-center gap-1"><GraduationCap className="h-4 w-4" /> Class of {user.gradYear}</span>
+                                <span className="flex items-center gap-1"><img src="/images/logo.png" alt="Batch" className="h-4 w-4 object-contain rounded-full bg-white" /> Class of {user.gradYear}</span>
                             </div>
                         </div>
                         <div className="flex gap-2 w-full md:w-auto mt-4 md:mt-0">
@@ -121,7 +121,7 @@ const Profile = () => {
                                 <div key={i} className="flex gap-4">
                                     <div className="mt-1">
                                         <div className="h-10 w-10 rounded-lg bg-gray-100 flex items-center justify-center">
-                                            <GraduationCap className="h-5 w-5 text-gray-500" />
+                                            <img src="/images/logo.png" alt="Education" className="h-5 w-5 text-gray-500 object-contain rounded-full bg-white" />
                                         </div>
                                     </div>
                                     <div>

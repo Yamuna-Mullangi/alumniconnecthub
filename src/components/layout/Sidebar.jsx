@@ -5,7 +5,6 @@ import {
     Briefcase,
     Calendar,
     MessageSquare,
-    GraduationCap,
     LogOut,
     Building2,
     Settings,
@@ -27,7 +26,7 @@ const Sidebar = () => {
         <div className="flex flex-col h-full bg-white border-r border-gray-200 shadow-sm">
             <div className="flex items-center justify-center h-16 px-4 border-b border-gray-200">
                 <div className="flex items-center gap-2 font-bold text-xl text-indigo-600">
-                    <GraduationCap className="h-8 w-8" />
+                    <img src="/images/logo.png" alt="Logo" className="h-8 w-8 object-contain rounded-full bg-white" />
                     <span>Alumni</span>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { MapPin, Briefcase } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -27,7 +27,7 @@ const AlumniCard = ({ alumni }) => {
                         <span className="truncate">{alumni.company}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <GraduationCap className="h-4 w-4 text-gray-400" />
+                        <img src="/images/logo.png" alt="Batch" className="h-4 w-4 text-gray-400 object-contain rounded-full bg-white" />
                         <span className="truncate">Class of {alumni.gradYear}</span>
                     </div>
                     <div className="flex items-center gap-2">

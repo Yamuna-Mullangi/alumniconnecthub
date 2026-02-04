@@ -25,8 +25,8 @@ const PublicNavbar = () => {
             <div className="flex items-center justify-between px-6 md:px-12 py-3">
                 {/* Logo Section */}
                 <Link to="/" className="flex items-center gap-3 group">
-                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:scale-105 transition-transform">
-                        <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain p-1" />
+                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-indigo-600/10 flex items-center justify-center p-1.5 overflow-hidden group-hover:scale-105 transition-transform">
+                        <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain rounded-full bg-white" />
                     </div>
                     <div>
                         <h1 className="text-lg font-bold text-foreground font-serif leading-tight">Alumni Connect</h1>

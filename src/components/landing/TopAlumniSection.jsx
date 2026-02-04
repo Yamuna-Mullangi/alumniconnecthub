@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Briefcase, GraduationCap } from "lucide-react";
+import { Award, Briefcase } from "lucide-react";
 
 const TopAlumniSection = () => {
   const topAlumni = [
@@ -70,7 +70,7 @@ const TopAlumniSection = () => {
                 <div className="absolute bottom-4 left-4 right-4 text-primary-foreground">
                   <h3 className="text-xl font-bold mb-1">{alumni.name}</h3>
                   <div className="flex items-center gap-2 text-sm opacity-90">
-                    <GraduationCap className="w-4 h-4" />
+                    <img src="/images/logo.png" alt="Batch" className="w-4 h-4 object-contain rounded-full bg-white" />
                     <span>{alumni.batch}</span>
                   </div>
                 </div>
