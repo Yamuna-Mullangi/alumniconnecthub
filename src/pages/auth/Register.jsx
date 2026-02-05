@@ -24,7 +24,16 @@ const registerSchema = z.object({
         required_error: "Please select a role",
     }),
     institution: z.string().min(1, "Please select your institution"),
+    otherInstitution: z.string().optional(),
     gradYear: z.string().min(4, "Please enter graduation year"),
+}).refine((data) => {
+    if (data.institution === "others" && !data.otherInstitution) {
+        return false;
+    }
+    return true;
+}, {
+    message: "Please specify your institution",
+    path: ["otherInstitution"],
 });
 
 const Register = () => {
@@ -42,16 +51,26 @@ const Register = () => {
         defaultValues: {
             role: "alumni",
             institution: "",
+            otherInstitution: "",
         },
     });
 
     const role = watch("role");
+    const selectedInstitution = watch("institution");
 
     const onSubmit = async (data) => {
         setIsLoading(true);
+
+        // If "Others" is selected, use the custom input value
+        const finalData = {
+            ...data,
+            institution: data.institution === "others" ? data.otherInstitution : data.institution,
+        };
+        delete finalData.otherInstitution;
+
         // Simulate API call
         setTimeout(() => {
-            console.log("Register data:", data);
+            console.log("Register data:", finalData);
             setIsLoading(false);
             navigate("/dashboard");
         }, 1500);
@@ -149,16 +168,38 @@ const Register = () => {
                                 <SelectValue placeholder="Select..." />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="mit">MIT</SelectItem>
-                                <SelectItem value="stanford">Stanford University</SelectItem>
-                                <SelectItem value="harvard">Harvard University</SelectItem>
-                                <SelectItem value="iit_bombay">IIT Bombay</SelectItem>
+                                <SelectItem value="andhra_university">Andhra University</SelectItem>
+                                <SelectItem value="jntu_kakinada">JNTU Kakinada</SelectItem>
+                                <SelectItem value="jntu_anantapur">JNTU Anantapur</SelectItem>
+                                <SelectItem value="sv_university">Sri Venkateswara University</SelectItem>
+                                <SelectItem value="acharya_nagarjuna">Acharya Nagarjuna University</SelectItem>
+                                <SelectItem value="vignan_university">Vignan's University</SelectItem>
+                                <SelectItem value="vignans_lara">Vignan's Lara Institute of Technology and Science</SelectItem>
+                                <SelectItem value="kl_university">KL University</SelectItem>
+                                <SelectItem value="gitam">GITAM Deemed University</SelectItem>
+                                <SelectItem value="others">Others</SelectItem>
                             </SelectContent>
                         </Select>
                         {errors.institution && (
                             <p className="text-xs text-red-500">{errors.institution.message}</p>
                         )}
                     </div>
+
+                    {selectedInstitution === "others" && (
+                        <div className="col-span-2 space-y-2">
+                            <Label htmlFor="otherInstitution">Specify Institution</Label>
+                            <Input
+                                id="otherInstitution"
+                                placeholder="Enter your institution name"
+                                disabled={isLoading}
+                                className={errors.otherInstitution ? "border-red-500" : ""}
+                                {...register("otherInstitution")}
+                            />
+                            {errors.otherInstitution && (
+                                <p className="text-xs text-red-500">{errors.otherInstitution.message}</p>
+                            )}
+                        </div>
+                    )}
 
                     <div className="space-y-2">
                         <Label htmlFor="gradYear">

@@ -1,113 +1,138 @@
-import { useState } from "react";
-import EventCard from "@/components/events/EventCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Search, Plus } from "lucide-react";
-
-// Mock Data
-const MOCK_EVENTS = [
-    {
-        id: 1,
-        title: "Annual Alumni Gala 2024",
-        date: "Saturday, Oct 12, 2024",
-        time: "6:00 PM - 10:00 PM",
-        month: "Oct",
-        day: "12",
-        location: "Grand Hotel, New York, NY",
-        category: "Networking",
-        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop",
-        attendees: 156,
-    },
-    {
-        id: 2,
-        title: "Tech Trends & AI Workshop",
-        date: "Wednesday, Nov 05, 2024",
-        time: "2:00 PM - 4:00 PM",
-        month: "Nov",
-        day: "05",
-        location: "Innovation Hub (Online)",
-        category: "Workshop",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7f8?q=80&w=2000&auto=format&fit=crop",
-        attendees: 84,
-    },
-    {
-        id: 3,
-        title: "Class of 2014 Reunion",
-        date: "Friday, Dec 15, 2024",
-        time: "7:00 PM - 11:00 PM",
-        month: "Dec",
-        day: "15",
-        location: "University Campus, Main Hall",
-        category: "Reunion",
-        image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop",
-        attendees: 230,
-    },
-    {
-        id: 4,
-        title: "Career Fair Spring 2025",
-        date: "Tuesday, Jan 10, 2025",
-        time: "10:00 AM - 3:00 PM",
-        month: "Jan",
-        day: "10",
-        location: "University Sports Complex",
-        category: "Career",
-        image: "https://images.unsplash.com/photo-1559223607-a30d5dc6e344?q=80&w=2074&auto=format&fit=crop",
-        attendees: 450,
-    },
-];
+import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const Events = () => {
-    const [searchTerm, setSearchTerm] = useState("");
+    const categories = ["All", "Reunions", "Webinars", "Hackathons", "Campus Events"];
 
-    const filteredEvents = MOCK_EVENTS.filter((event) =>
-        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.location.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const events = [
+        {
+            title: "Global Alumni Meet 2024",
+            category: "Reunions",
+            date: "OCT 12",
+            time: "10:00 AM - 4:00 PM",
+            location: "San Francisco, CA",
+            attendees: 120,
+            image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+            description: "Join us for our annual global meet. Network with alumni from across the globe."
+        },
+        {
+            title: "AI in Healthcare Webinar",
+            category: "Webinars",
+            date: "NOV 05",
+            time: "2:00 PM - 3:30 PM",
+            location: "Online (Zoom)",
+            attendees: 450,
+            image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=1974&auto=format&fit=crop",
+            description: "Expert panel discussion on the future of AI in modern healthcare systems."
+        },
+        {
+            title: "HackTheFuture 2024",
+            category: "Hackathons",
+            date: "NOV 15",
+            time: "48 Hours",
+            location: "Main Campus, Block A",
+            attendees: 85,
+            image: "https://images.unsplash.com/photo-1504384308090-c54be3855463?q=80&w=2070&auto=format&fit=crop",
+            description: "A 48-hour coding marathon to solve real-world problems. Great prizes for winners!"
+        },
+        {
+            title: "Campus Cultural Fest",
+            category: "Campus Events",
+            date: "DEC 20",
+            time: "6:00 PM - 11:00 PM",
+            location: "University Auditorium",
+            attendees: 300,
+            image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
+            description: "Celebrating our diverse culture with music, dance, and food stalls."
+        }
+    ];
 
     return (
-        <div className="space-y-6">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-gray-900">Events</h1>
-                    <p className="text-gray-500">Discover and join alumni events near you</p>
+                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600">Events</h1>
+                    <p className="text-muted-foreground mt-1">View upcoming and previous alumni events & conferences.</p>
                 </div>
-                <Button className="bg-indigo-600">
-                    <Plus className="mr-2 h-4 w-4" /> Create Event
+                <Button className="bg-gradient-to-r from-violet-600 to-indigo-600 shadow-lg shadow-indigo-500/20">
+                    Host an Event
                 </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <Tabs defaultValue="upcoming" className="w-full sm:w-auto">
-                    <TabsList>
-                        <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-                        <TabsTrigger value="past">Past Events</TabsTrigger>
-                        <TabsTrigger value="my-events">My Events</TabsTrigger>
+            <Tabs defaultValue="All" className="w-full">
+                <div className="overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
+                    <TabsList className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-white/20 p-1 rounded-full h-12 w-auto inline-flex">
+                        {categories.map((cat) => (
+                            <TabsTrigger
+                                key={cat}
+                                value={cat}
+                                className="rounded-full px-6 h-10 data-[state=active]:bg-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all duration-300 hover:bg-white/80 dark:hover:bg-gray-700 hover:text-indigo-600 hover:scale-105 hover:shadow-sm"
+                            >
+                                {cat}
+                            </TabsTrigger>
+                        ))}
                     </TabsList>
-                </Tabs>
-
-                <div className="relative w-full sm:w-64">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                    <Input
-                        placeholder="Search events..."
-                        className="pl-9"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
                 </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                    <EventCard key={event.id} event={event} />
+                {categories.map((cat) => (
+                    <TabsContent key={cat} value={cat} className="mt-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+                        {events.filter(e => cat === "All" || e.category === cat).length > 0 ? (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {events.filter(e => cat === "All" || e.category === cat).map((event, index) => (
+                                    <Card key={index} className="overflow-hidden border-none shadow-lg glass-card group hover:-translate-y-1 transition-all duration-300">
+                                        <div className="relative h-48 overflow-hidden">
+                                            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 text-center shadow-sm z-10">
+                                                <p className="text-xs font-bold text-indigo-600 uppercase">{event.date.split(' ')[0]}</p>
+                                                <p className="text-lg font-extrabold text-gray-900">{event.date.split(' ')[1]}</p>
+                                            </div>
+                                            <Badge className="absolute top-3 right-3 bg-black/50 backdrop-blur-md hover:bg-black/60 border-none text-white font-medium z-10">
+                                                {event.category}
+                                            </Badge>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-[5]" />
+                                            <img
+                                                src={event.image}
+                                                alt={event.title}
+                                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                            />
+                                        </div>
+                                        <CardHeader className="pb-2">
+                                            <CardTitle className="text-xl font-bold line-clamp-1 group-hover:text-indigo-600 transition-colors">{event.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="space-y-4">
+                                            <p className="text-sm text-muted-foreground line-clamp-2">{event.description}</p>
+                                            <div className="space-y-2 text-sm text-muted-foreground/80">
+                                                <div className="flex items-center gap-2">
+                                                    <Clock className="w-4 h-4 text-indigo-500" /> {event.time}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <MapPin className="w-4 h-4 text-indigo-500" /> {event.location}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <Users className="w-4 h-4 text-indigo-500" /> {event.attendees} Attending
+                                                </div>
+                                            </div>
+                                            <Button variant="outline" className="w-full mt-2 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-200 transition-all">
+                                                View Details
+                                            </Button>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="flex flex-col items-center justify-center py-20 text-center">
+                                <div className="w-20 h-20 bg-muted/50 rounded-full flex items-center justify-center mb-4">
+                                    <Calendar className="w-10 h-10 text-muted-foreground/50" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-foreground">No events found</h3>
+                                <p className="text-muted-foreground">There are no upcoming events in this category yet.</p>
+                            </div>
+                        )}
+                    </TabsContent>
                 ))}
-            </div>
-
-            {filteredEvents.length === 0 && (
-                <div className="text-center py-12">
-                    <p className="text-gray-500">No events found matching your criteria.</p>
-                </div>
-            )}
+            </Tabs>
         </div>
     );
 };

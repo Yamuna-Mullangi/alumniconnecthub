@@ -8,15 +8,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_15px_rgba(123,51,126,0.3)] hover:shadow-[0_0_25px_rgba(123,51,126,0.6)]",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
+        outline: "border border-input bg-background/50 hover:bg-accent hover:text-accent-foreground hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 backdrop-blur-sm",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
+        ghost: "hover:bg-accent/50 hover:text-accent-foreground hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold",
-        heroOutline: "border-2 border-primary-foreground/80 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 backdrop-blur-sm transition-all duration-300 font-semibold",
-        glass: "bg-card/30 backdrop-blur-md text-primary-foreground border border-primary-foreground/20 hover:bg-card/50 hover:border-primary-foreground/40 transition-all duration-300",
+        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(123,51,126,0.5)] hover:shadow-[0_0_35px_rgba(123,51,126,0.7)] hover:-translate-y-1 transition-all duration-300 font-semibold tracking-wide",
+        heroOutline: "border-2 border-white/20 text-white bg-white/5 hover:bg-white/10 backdrop-blur-md shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-300 font-semibold tracking-wide",
+        glass: "bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-[1.02] transition-all duration-300",
+        glow: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(123,51,126,0.5)] hover:shadow-[0_0_40px_rgba(123,51,126,0.8)] hover:scale-[1.05] transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

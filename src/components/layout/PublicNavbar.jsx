@@ -20,17 +20,17 @@ const PublicNavbar = () => {
     return (
         <header className={cn(
             "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-            "bg-white/95 backdrop-blur-md border-b border-gray-100 dark:bg-gray-900/95 dark:border-gray-800"
+            "bg-background/80 backdrop-blur-md border-b border-white/10 shadow-sm"
         )}>
             <div className="flex items-center justify-between px-6 md:px-12 py-3">
                 {/* Logo Section */}
                 <Link to="/" className="flex items-center gap-3 group">
-                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-indigo-600/10 flex items-center justify-center p-1.5 overflow-hidden group-hover:scale-105 transition-transform">
-                        <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain rounded-full bg-white" />
+                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full Glass flex items-center justify-center p-1.5 overflow-hidden group-hover:scale-105 transition-transform border border-white/20 shadow-md">
+                        <img src="/images/logo.png" alt="Alumni Connect Logo" className="w-full h-full object-contain rounded-full bg-white/90" />
                     </div>
                     <div>
-                        <h1 className="text-lg font-bold text-foreground font-serif leading-tight">Alumni Connect</h1>
-                        <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Vignan's Lara</p>
+                        <h1 className="text-lg font-bold text-foreground font-serif leading-tight tracking-wide">Alumni Connect</h1>
+                        <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Vignan's Lara</p>
                     </div>
                 </Link>
 
@@ -53,12 +53,12 @@ const PublicNavbar = () => {
                 {/* Action Buttons */}
                 <div className="flex items-center gap-3">
                     <Link to="/auth/login">
-                        <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+                        <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-primary hover:bg-primary/10">
                             Login
                         </Button>
                     </Link>
                     <Link to="/auth/register">
-                        <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20">
+                        <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_15px_rgba(123,51,126,0.5)] border border-primary/20">
                             Register
                         </Button>
                     </Link>

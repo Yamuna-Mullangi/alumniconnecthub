@@ -57,7 +57,7 @@ const TopAlumniSection = () => {
           {topAlumni.map((alumni, index) => (
             <Card
               key={index}
-              className="overflow-hidden bg-white/60 backdrop-blur-md hover:shadow-2xl transition-all duration-300 group border-white/20 shadow-lg hover:border-primary/50 cursor-pointer hover:-translate-y-2 animate-fade-in"
+              className="overflow-hidden glass-card hover:shadow-2xl transition-all duration-300 group border-white/10 shadow-lg hover:border-primary/50 cursor-pointer hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative h-64 overflow-hidden">
@@ -66,11 +66,11 @@ const TopAlumniSection = () => {
                   alt={alumni.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-primary-foreground">
-                  <h3 className="text-xl font-bold mb-1">{alumni.name}</h3>
-                  <div className="flex items-center gap-2 text-sm opacity-90">
-                    <img src="/images/logo.png" alt="Batch" className="w-4 h-4 object-contain rounded-full bg-white" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-foreground">
+                  <h3 className="text-xl font-bold mb-1 drop-shadow-md">{alumni.name}</h3>
+                  <div className="flex items-center gap-2 text-sm opacity-90 text-primary-foreground">
+                    <img src="/images/logo.png" alt="Batch" className="w-4 h-4 object-contain rounded-full bg-white/90" />
                     <span>{alumni.batch}</span>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ const TopAlumniSection = () => {
                     <p className="text-sm text-muted-foreground">{alumni.company}</p>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-3">
+                <p className="text-sm text-foreground/90 italic border-l-2 border-primary/50 pl-3 leading-relaxed">
                   {alumni.achievement}
                 </p>
               </CardContent>

@@ -57,39 +57,39 @@ const Notifications = () => {
         <div className="space-y-6 max-w-4xl mx-auto">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-gray-900">Notifications</h1>
-                    <p className="text-gray-500">Stay updated with your network activity.</p>
+                    <h1 className="text-2xl font-bold tracking-tight text-foreground">Notifications</h1>
+                    <p className="text-muted-foreground">Stay updated with your network activity.</p>
                 </div>
-                <Button variant="outline" size="sm">Mark all as read</Button>
+                <Button variant="outline" size="sm" className="border-white/10 text-foreground hover:bg-white/10 bg-transparent">Mark all as read</Button>
             </div>
 
-            <Card>
-                <CardHeader className="pb-3 border-b border-gray-100">
-                    <CardTitle className="text-base font-medium">Recent</CardTitle>
+            <Card className="glass-card border-white/10">
+                <CardHeader className="pb-3 border-b border-white/10">
+                    <CardTitle className="text-base font-medium text-foreground">Recent</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                     {NOTIFICATIONS.map((notification) => (
                         <div
                             key={notification.id}
-                            className={`flex items-start gap-4 p-4 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors ${!notification.read ? "bg-indigo-50/30" : ""}`}
+                            className={`flex items-start gap-4 p-4 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors cursor-pointer group ${!notification.read ? "bg-primary/5" : ""}`}
                         >
                             <div className="relative">
-                                <Avatar>
+                                <Avatar className="ring-1 ring-white/10">
                                     <AvatarImage src={notification.avatar} />
-                                    <AvatarFallback>{notification.user[0]}</AvatarFallback>
+                                    <AvatarFallback className="bg-primary/20 text-primary">{notification.user[0]}</AvatarFallback>
                                 </Avatar>
-                                <div className="absolute -bottom-1 -right-1 p-1 bg-white rounded-full shadow-sm">
+                                <div className="absolute -bottom-1 -right-1 p-1 bg-card rounded-full shadow-sm border border-white/10">
                                     {getIcon(notification.type)}
                                 </div>
                             </div>
                             <div className="flex-1 space-y-1">
-                                <p className="text-sm text-gray-900">
-                                    <span className="font-semibold hover:underline cursor-pointer">{notification.user}</span> {notification.content}
+                                <p className="text-sm text-foreground/90 group-hover:text-foreground transition-colors">
+                                    <span className="font-semibold hover:underline text-primary-foreground">{notification.user}</span> {notification.content}
                                 </p>
-                                <p className="text-xs text-gray-500">{notification.time}</p>
+                                <p className="text-xs text-muted-foreground">{notification.time}</p>
                             </div>
                             {!notification.read && (
-                                <div className="h-2 w-2 bg-indigo-600 rounded-full mt-2"></div>
+                                <div className="h-2 w-2 bg-primary rounded-full mt-2 ring-2 ring-primary/20"></div>
                             )}
                         </div>
                     ))}

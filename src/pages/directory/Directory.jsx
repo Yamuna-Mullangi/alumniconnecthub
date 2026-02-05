@@ -1,8 +1,7 @@
 import { useState } from "react";
 import AlumniCard from "@/components/directory/AlumniCard";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Search, Filter } from "lucide-react";
+import { Search } from "lucide-react";
 
 // Mock Data
 const MOCK_ALUMNI = [
@@ -75,19 +74,17 @@ const Directory = () => {
         <div className="space-y-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-gray-900">Alumni Directory</h1>
-                    <p className="text-gray-500">Connect with {MOCK_ALUMNI.length}+ alumni across the globe</p>
+                    <h1 className="text-2xl font-bold tracking-tight text-foreground">Alumni Directory</h1>
+                    <p className="text-muted-foreground">Connect with {MOCK_ALUMNI.length}+ alumni across the globe</p>
                 </div>
-                <Button>
-                    <Filter className="mr-2 h-4 w-4" /> Filter
-                </Button>
+
             </div>
 
             <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
                     placeholder="Search by name, company, or role..."
-                    className="pl-10 h-12 text-lg bg-white shadow-sm border-gray-200"
+                    className="pl-10 h-12 text-lg bg-white/5 border-white/10 shadow-sm text-foreground placeholder:text-muted-foreground/50 focus-visible:ring-primary focus-visible:border-primary/50"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -101,7 +98,7 @@ const Directory = () => {
 
             {filteredAlumni.length === 0 && (
                 <div className="text-center py-12">
-                    <p className="text-gray-500 text-lg">No alumni found matching your search.</p>
+                    <p className="text-muted-foreground text-lg">No alumni found matching your search.</p>
                 </div>
             )}
         </div>
